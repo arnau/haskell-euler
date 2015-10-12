@@ -1,4 +1,5 @@
-module Euler.P001 (sumOfMultiples)  where
+module Euler.P001 (sumOfMultiples,
+                   sumOfMultiples')  where
 
 -- Problem 1
 --
@@ -8,5 +9,13 @@ module Euler.P001 (sumOfMultiples)  where
 -- Find the sum of all the multiples of 3 or 5 below 1000.
 
 sumOfMultiples :: Int -> Int
-sumOfMultiples n = sum $ filter (\x -> x `mod` 3 == 0 || x `mod` 5 == 0)
+sumOfMultiples n = sum $ filter (\x -> x `divBy` 3 || x `divBy` 5)
                        $ take (n - 1) [1..]
+
+sumOfMultiples' :: Int -> Int
+sumOfMultiples' n = sum [x | x <- [1..n],
+                         x < n,
+                         (x `divBy` 3 || x `divBy` 5)]
+
+divBy :: Int -> Int -> Bool
+divBy x y = x `mod` y == 0

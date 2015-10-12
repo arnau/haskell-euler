@@ -1,6 +1,8 @@
 FROM haskell:7.10
 MAINTAINER Arnau Siches <asiches@gmail.com>
 
+ENV TERM screen-256color
+
 COPY . /source
 WORKDIR /source
 
