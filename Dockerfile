@@ -1,7 +1,12 @@
 FROM haskell:7.10
 MAINTAINER Arnau Siches <asiches@gmail.com>
 
-RUN cabal update \
- && cabal install
+COPY . /source
+WORKDIR /source
 
-COPY ghci.conf /root/.ghci
+RUN echo ":set prompt \"\\ESC[35mghci> \\ESC[m\"" > /root/.ghci
+
+RUN cabal update \
+ && cabal install --only-dependencies --enable-tests
+
+CMD ["ghci"]

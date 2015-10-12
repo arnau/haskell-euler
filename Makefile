@@ -1,18 +1,28 @@
+.PHONY: build shell ghci test
+
 image_name := arnau/haskell-euler
 
+DOCKER := docker
+DKR_JOB := $(DOCKER) run --rm -it
+
+install:
+	$(job) cabal install --only-dependencies --enable-tests
+
 build:
-	docker build -t $(image_name) .
+	$(DOCKER) build -t $(image_name) .
 
 shell:
-	docker run --rm -it \
-		-v $(PWD):/source \
-		-w /source \
-		$(image_name) \
-		ghci
+	$(job) bash
+
+ghci:
+	$(job)
 
 test:
-	docker run --rm -it \
-		-v $(PWD):/source \
-		-w /source \
-		$(image_name) \
-		cabal test
+	$(job) cabal test
+
+define job
+  $(DKR_JOB) \
+    -v $(PWD):/source \
+    -w /source \
+    $(image_name)
+endef
