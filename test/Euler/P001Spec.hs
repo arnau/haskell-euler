@@ -1,8 +1,11 @@
-module Euler.P001Spec (spec) where
+module Euler.P001Spec (main, spec) where
 
 import Test.Hspec
 
 import Euler.P001
+
+main :: IO ()
+main = hspec spec
 
 spec :: Spec
 spec = do
