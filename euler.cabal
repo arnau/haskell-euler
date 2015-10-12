@@ -25,6 +25,7 @@ library
 test-suite spec
   type:                exitcode-stdio-1.0
   ghc-options:         -Wall
+                       -threaded
   hs-source-dirs:      test
   main-is:             Main.hs
   build-depends:       base == 4.*,

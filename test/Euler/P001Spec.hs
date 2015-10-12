@@ -8,7 +8,7 @@ main :: IO ()
 main = hspec spec
 
 spec :: Spec
-spec = do
+spec = parallel $ do
   describe "sumOfMultiples" $ do
     it "sums all multiples of 3 or 5 below 10" $ do
       sumOfMultiples 10 `shouldBe` 23
