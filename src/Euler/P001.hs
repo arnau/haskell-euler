@@ -9,13 +9,13 @@ module Euler.P001 (sumOfMultiples,
 -- Find the sum of all the multiples of 3 or 5 below 1000.
 
 sumOfMultiples :: Int -> Int
-sumOfMultiples n = sum $ filter (\x -> x `divBy` 3 || x `divBy` 5)
+sumOfMultiples n = sum $ filter (\x -> x `isDivBy` 3 || x `isDivBy` 5)
                        $ take (n - 1) [1..]
 
 sumOfMultiples' :: Int -> Int
 sumOfMultiples' n = sum [x | x <- [1..n],
                          x < n,
-                         (x `divBy` 3 || x `divBy` 5)]
+                         (x `isDivBy` 3 || x `isDivBy` 5)]
 
-divBy :: Int -> Int -> Bool
-divBy x y = x `mod` y == 0
+isDivBy :: Int -> Int -> Bool
+isDivBy x y = x `mod` y == 0
