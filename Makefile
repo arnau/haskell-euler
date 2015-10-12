@@ -6,19 +6,19 @@ DOCKER := docker
 DKR_JOB := $(DOCKER) run --rm -it
 
 install:
-	$(job) cabal install --only-dependencies --enable-tests
+	@$(job) cabal install --only-dependencies --enable-tests
 
 build:
 	$(DOCKER) build -t $(image_name) .
 
 shell:
-	$(job) bash
+	@$(job) bash
 
 ghci:
-	$(job)
+	@$(job)
 
 test:
-	$(job) cabal test
+	@$(job) cabal test
 
 define job
   $(DKR_JOB) \
