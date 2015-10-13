@@ -18,7 +18,8 @@ cabal-version:       >= 1.10
 library
   ghc-options:         -Wall
   hs-source-dirs:      src
-  exposed-modules:     Euler.P001
+  exposed-modules:     Euler.P001,
+                       Euler.P002
   build-depends:       base == 4.*
   default-language:    Haskell2010
 
