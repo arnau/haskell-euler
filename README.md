@@ -2,6 +2,13 @@
 
 Approached as a library where each problem is a module.
 
+## Install
+
+*Warning* Requires Docker.
+
+    $ make
+    $ make install
+
 To run it just
 
     $ make test

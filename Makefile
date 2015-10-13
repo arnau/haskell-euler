@@ -5,6 +5,8 @@ image_name := arnau/haskell-euler
 DOCKER := docker
 DKR_JOB := $(DOCKER) run --rm -it
 
+default: build
+
 install:
 	@$(job) cabal install --only-dependencies --enable-tests
 
