@@ -13,7 +13,7 @@ sumEvenFib :: Int -> Int
 sumEvenFib = sum . evenFib
 
 evenFib :: Int -> [Int]
-evenFib n = filter even $ takeWhile (\x -> x <= n) $ map fib [1..]
+evenFib n = filter even $ takeWhile (<= n) $ map fib [1..]
 
 
 fib :: (Integral a) => a -> a
