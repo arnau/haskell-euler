@@ -14,3 +14,8 @@ spec = parallel $ do
       sumEvenFib 89 `shouldBe` 44
     it "under 4000000" $ do
       sumEvenFib 4000000 `shouldBe` 4613732
+  describe "sumEvenFib'" $ do
+    it "under 89" $ do
+      sumEvenFib' 89 `shouldBe` 44
+    it "under 4000000" $ do
+      sumEvenFib' 4000000 `shouldBe` 4613732
